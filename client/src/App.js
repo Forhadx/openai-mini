@@ -39,14 +39,18 @@ function App() {
                     <strong className="message__author__bot">
                       {item?.type}
                     </strong>
-                    <p className="message__text">{item?.message}</p>
+                    <p className="message__text">
+                      <pre>{item?.message}</pre>
+                    </p>
                   </div>
                 </div>
               ) : (
                 <div className="message__wrapper">
                   <div className="message__body">
                     <strong className="message__author">{item?.type}</strong>
-                    <p className="message__text">{item?.message}</p>
+                    <p className="message__text">
+                      <pre>{item?.message}</pre>
+                    </p>
                   </div>
                 </div>
               )}
