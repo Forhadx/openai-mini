@@ -17,7 +17,7 @@ function App() {
         message: msg,
       });
       setData(updateData);
-      let res = await axios.post("http://localhost:5000/que", { msg });
+      let res = await axios.post("https://openai-yhec.onrender.com/que", { msg });
       updateData.push({
         type: "AI",
         message: res?.data?.data,
