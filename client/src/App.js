@@ -17,7 +17,9 @@ function App() {
         message: msg,
       });
       setData(updateData);
-      let res = await axios.post("https://openai-yhec.onrender.com/que", { msg });
+      let res = await axios.post("https://openai-yhec.onrender.com/que", {
+        msg,
+      });
       updateData.push({
         type: "AI",
         message: res?.data?.data,
@@ -31,7 +33,7 @@ function App() {
     <main className="container">
       <section id="messages__container">
         <div id="messages">
-          {data.map((item) => (
+          {data.map((item, idx) => (
             <>
               {item?.type === "user" ? (
                 <div className="message__wrapper">
@@ -43,6 +45,9 @@ function App() {
                       <pre>{item?.message}</pre>
                     </p>
                   </div>
+                  {idx === data.length - 1 && isLoading ? (
+                    <div class="loader"></div>
+                  ) : null}
                 </div>
               ) : (
                 <div className="message__wrapper">
